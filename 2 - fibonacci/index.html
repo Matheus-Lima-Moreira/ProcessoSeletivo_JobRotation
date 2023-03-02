@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci</title>
+</head>
+
+<body>
+  <div>
+    <form>
+      <label for="value">Enter a number and find out if it is a Fibonacci number</label><br>
+      <input type="number" id="value" required /><br>
+      <button id="btnSubmit" style="margin-top: .7em;margin-bottom: .8em;">Find out</button><br>
+      <span id="response"></span>
+    </form>
+  </div>
+
+  <script>
+    const btnSubmit = document.getElementById('btnSubmit');
+    const response = document.getElementById('response');
+
+    btnSubmit.addEventListener('click', (e) => {
+      e.preventDefault();
+      const number = document.getElementById('value').value;
+      response.innerHTML = isFibonacciNumber(number) ? 'Yes!!' : 'No!!';
+    });
+
+    /**
+     * Check if a number is a Fibonacci number
+     * @param {number} n
+     * @returns {boolean} return true if n is a Fibonacci number
+     */
+    function isFibonacciNumber(n) {
+      return Number.isInteger(Math.sqrt((5 * n * n + 4))) || Number.isInteger(Math.sqrt((5 * n * n - 4)));
+    }
+  </script>
+</body>
+
+</html>
